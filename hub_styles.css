@@ -2,6 +2,7 @@
     --cevicom-red: #D20A11;
     --cevicom-black: #1A1A1A;
     --cevicom-white: #FFFFFF;
+    --area51-yellow: #FFCC00; /* Novo: Amarelo de Alerta para o botão */
 }
 
 body {
@@ -78,12 +79,50 @@ header h1 {
     margin-bottom: 1rem;
 }
 
+/* Estilos dos botões existentes */
 .igut {
-    background: #0080ff; /* Fundo mais escuro para o botão do IGUT */
+    background: #0080ff;
 }
 
 .eba {
-    background: #c0392b; /* Fundo vermelho para o botão do EBA */
+    background: #c0392b;
+}
+
+/* NOVO ESTILO: ÁREA 51 (Preto e Amarelo de Alerta) */
+.area-51 {
+    background: var(--cevicom-black); /* Fundo Preto */
+    border: 2px solid var(--area51-yellow); /* Borda Amarela */
+    color: var(--area51-yellow); /* Texto Amarelo */
+}
+
+.area-51 .area-51-icon {
+    font-size: 3.5rem; /* Ícone de radiação maior */
+    color: var(--area51-yellow); /* Cor do ícone */
+    margin-bottom: 1rem;
+    animation: pulse-glow 1.5s infinite alternate; /* Adiciona um efeito de pulso/brilho */
+}
+
+.area-51:hover {
+    background-color: var(--area51-yellow); /* Inverte as cores no hover */
+    color: var(--cevicom-black); /* Texto preto */
+    box-shadow: 0 12px 25px rgba(255, 204, 0, 0.6);
+}
+
+.area-51:hover .area-51-icon {
+    color: var(--cevicom-black); /* Ícone preto no hover */
+    animation: none; /* Remove a animação no hover */
+}
+
+/* Keyframe para o efeito de pulso/brilho no ícone de radiação */
+@keyframes pulse-glow {
+    from {
+        box-shadow: 0 0 5px var(--area51-yellow);
+        text-shadow: 0 0 5px var(--area51-yellow);
+    }
+    to {
+        box-shadow: 0 0 20px var(--area51-yellow);
+        text-shadow: 0 0 10px var(--area51-yellow);
+    }
 }
 
 footer {
