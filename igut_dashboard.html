@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="igut_styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHpZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+<body id="dashboard-igut"> 
     <header>
         <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Voltar ao Hub</a>
         <div class="logo-container">
@@ -30,9 +30,8 @@
         <nav class="dashboard-nav">
             <ul>
                 <li><a href="#licencas" class="nav-item active"><i class="fas fa-id-badge"></i> Licenças e Contrato</a></li>
-                <li><a href="#servidor" class="nav-item"><i class="fas fa-database"></i> Servidor</a></li>
-                <li><a href="#clinico" class="nav-item"><i class="fas fa-user-md"></i> Dados Clínicos</a></li>
-                <li><a href="#notas" class="nav-item"><i class="fas fa-file-invoice"></i> Notas Emitidas</a></li>
+                <li><a href="#info-clinica" class="nav-item"><i class="fas fa-info-circle"></i> Info. Clínica</a></li>
+                <li><a href="#servicos-adicionais" class="nav-item"><i class="fas fa-wrench"></i> Serviços Adicionais</a></li>
             </ul>
         </nav>
     </header>
@@ -51,31 +50,100 @@
                 </div>
             </div>
             
-            <div id="servidor-section" class="dashboard-section card hidden">
-                <h3><i class="fas fa-database"></i> Servidor</h3>
-                <div id="servidor" class="card-content"></div>
+            <div id="info-clinica-section" class="dashboard-section card hidden">
+                <h3><i class="fas fa-info-circle"></i> Informações Operacionais</h3>
+                <div id="info-clinica-content" class="card-content">
+                    </div>
+            </div>
+
+            <div id="servicos-adicionais-section" class="dashboard-section card hidden">
+                <h3><i class="fas fa-wrench"></i> Serviços Adicionais Contratados</h3>
+                <div id="servicos-adicionais-content" class="card-content">
+                    </div>
             </div>
             
-            <div id="clinico-section" class="dashboard-section card hidden">
-                <h3><i class="fas fa-user-md"></i> Dados Clínicos</h3>
-                <div id="clinico" class="card-content"></div>
-            </div>
-            
-            <div id="notas-section" class="dashboard-section card hidden">
-                <h3><i class="fas fa-file-invoice"></i> Notas Emitidas</h3>
-                <div id="notas" class="card-content"></div>
-            </div>
         </div>
 
-        <div id="valorTotal" class="total-valor hidden">
-            💸 Valor Estimado das Licenças Ativas: <span id="valorLicenca"></span>
-        </div>
+    </div> 
+
+    <div style="text-align: center; margin-top: 30px; margin-bottom: 80px;">
+        <button id="openLicenseModalBtn" class="solicitation-btn">
+            <i class="fas fa-plus-circle"></i> Solicitar Novas Licenças
+        </button>
     </div>
 
+    <div id="licenseModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>Solicitação de Licença</h3>
+            <p id="clinicNameDisplay" style="font-weight: bold; color: var(--primary-blue);"></p>
+
+            <form id="licenseForm">
+                
+                <div class="form-group required">
+                    <label for="qtdLicenca">Quantidade de Licenças:</label>
+                    <input type="number" id="qtdLicenca" min="1" required>
+                </div>
+                
+                <div class="form-group required">
+                    <label for="tipoLicenca">Tipo de Licença:</label>
+                    <select id="tipoLicenca" required>
+                        <option value="">-- Selecione o Tipo --</option>
+                        <option value="CRM">Licença CRM (R$ 100,00)</option>
+                        <option value="OUTROS">Demais Especialidades (R$ 50,00)</option>
+                    </select>
+                </div>
+
+                <div class="form-group required">
+                    <label for="dadosSelect">Dados do Profissional:</label>
+                    <select id="dadosSelect" required>
+                        <option value="COMPLETO">Tenho os dados do(a) médico(a)</option>
+                        <option value="PENDENTE">Ainda não tenho os dados do profissional</option>
+                    </select>
+                </div>
+
+                <div id="medicDataFields">
+                    <hr>
+                    <h4>Dados do Profissional</h4>
+                    <div class="form-group">
+                        <label for="medicName">Nome Completo:</label>
+                        <input type="text" id="medicName" placeholder="Ex: Dr(a). João da Silva">
+                    </div>
+                    <div class="form-group">
+                        <label for="medicCPF">CPF:</label>
+                        <input type="text" id="medicCPF" placeholder="000.000.000-00">
+                    </div>
+                    <div class="form-group group-row">
+                        <div class="group-col">
+                            <label for="conselhoTipo">Conselho:</label>
+                            <select id="conselhoTipo">
+                                <option value="CRM">CRM</option>
+                                <option value="CRFA">CRFA</option>
+                                <option value="CRP">CRP</option>
+                                <option value="SEM">Outros</option>
+                            </select>
+                        </div>
+                        <div class="group-col">
+                            <label for="conselhoUF">UF:</label>
+                            <input type="text" id="conselhoUF" maxlength="2" placeholder="Ex: DF">
+                        </div>
+                        <div class="group-col">
+                            <label for="conselhoNum">Número:</label>
+                            <input type="text" id="conselhoNum" placeholder="Número do Conselho">
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" id="sendRequestBtn" class="solicitation-btn primary-action">
+                    Enviar Solicitação via WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/js/select2.min.js"></script>
-    <script src="igut_script.js"></script>
-
+    <script src="app.js"></script>
     <footer>
         <p>&copy;© 2025 Igut Sistemas. Todos os direitos reservados. Desenvolvido por Nadson Fernandes.</p>
     </footer>
