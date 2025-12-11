@@ -1,3 +1,5 @@
+/* igut_styles.css - Versão Completa e Corrigida */
+
 :root {
     --primary-blue: #64B5F6; /* Azul principal mais claro */
     --accent-blue: #90CAF9; /* Azul de destaque mais claro para o gradiente */
@@ -7,6 +9,7 @@
     --shadow-color: rgba(0,0,0,0.1);
     --footer-bg: #333;
     --footer-text-color: #FFFFFF;
+    --primary-red: #D20A11; /* Cor de alerta para o modal (do EBA) */
 }
 
 body {
@@ -66,7 +69,7 @@ header {
 }
 
 .igut-logo {
-    max-width: 280px; /* Aumentei um pouco para melhor visualização */
+    max-width: 280px;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -166,7 +169,7 @@ header h1 .fas {
     font-weight: bold;
 }
 
-/* ESTILOS MODERNOS PARA O SELECT */
+/* ESTILOS MODERNOS PARA O SELECT (MANTIDOS) */
 .select2-container {
     width: 100% !important;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -234,7 +237,6 @@ header h1 .fas {
     font-size: 1rem;
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
 }
-/* FIM DOS ESTILOS MODERNOS PARA O SELECT */
 
 #buscarBtn {
     background-color: var(--primary-blue);
@@ -352,7 +354,7 @@ header h1 .fas {
 }
 
 .hidden {
-    display: none;
+    display: none !important; /* Adiciona !important para forçar a ocultação */
 }
 
 footer {
@@ -368,3 +370,408 @@ footer {
     box-shadow: 0 -2px 10px rgba(0,0,0,0.2);
     z-index: 1000;
 }
+
+/* Adições para a nova visualização de licenças (Gráficos/Cards) */
+
+.license-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.usage-metric-card {
+    background-color: #e3f2fd;
+    border: 1px solid var(--primary-blue);
+    padding: 15px;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.metric-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.metric-header h4 {
+    color: var(--dark-blue);
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.usage-values {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.usage-percentage {
+    font-weight: bold;
+    color: var(--dark-blue);
+}
+
+/* Estilização da Barra de Uso (Gráfico Simples) */
+.usage-bar-container {
+    background-color: #bbdefb;
+    border-radius: 10px;
+    height: 12px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.usage-bar-fill {
+    height: 100%;
+    background-color: var(--dark-blue);
+    transition: width 0.8s ease-out;
+}
+
+.usage-bar-fill.critical {
+    background-color: #E53935; /* Vermelho */
+}
+
+.total-cost-display {
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: var(--dark-blue);
+    color: var(--cevicom-white);
+    border-radius: 8px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Estilos do Botão Único de Solicitação --- */
+
+.solicitation-btn {
+    background-color: var(--primary-blue);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.solicitation-btn:hover {
+    background-color: var(--dark-blue);
+    transform: translateY(-2px);
+}
+
+/* --- Estilos da Modal --- */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050; 
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 550px;
+    width: 90%;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+    max-height: 85vh;
+    overflow-y: auto; 
+    color: var(--text-color);
+}
+
+.modal-content h3 {
+    color: var(--dark-blue);
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: var(--primary-red);
+}
+
+/* --- Estilos do Formulário na Modal --- */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group.required label::after {
+    content: " *";
+    color: var(--primary-red);
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+.form-group hr {
+    margin: 20px 0;
+    border-color: #eee;
+}
+
+/* Layout de Colunas para campos pequenos */
+.group-row {
+    display: flex;
+    gap: 15px;
+}
+.group-col {
+    flex: 1;
+}
+
+/* Estilo para o botão de envio dentro da modal */
+#sendRequestBtn {
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* --- Estilos para a nova seção Info. Clínica --- */
+
+.info-clinica-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.data-box {
+    background-color: #e3f2fd; /* Azul claro */
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease;
+    border-left: 5px solid var(--dark-blue);
+    position: relative;
+    overflow: hidden;
+}
+
+.data-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+.data-box h5 {
+    font-size: 0.9rem;
+    color: #888;
+    margin: 0 0 5px 0;
+    font-weight: 500;
+}
+
+.data-box p {
+    font-size: 1.4rem;
+    color: var(--dark-blue);
+    font-weight: bold;
+    margin: 0;
+}
+
+.data-box .fas {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.8rem;
+    color: var(--accent-blue);
+    opacity: 0.5;
+}
+
+/* Status do Servidor e Ambiente (Chips/Badges) */
+.status-chip {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 10px;
+    animation: fadeIn 1s ease-out;
+}
+
+.status-chip.online {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.status-chip.offline {
+    background-color: #F44336; /* Red */
+    color: white;
+}
+
+/* Cores de Ambiente */
+.status-chip.env-alfa { background-color: #FFC107; color: var(--text-color); } /* Amarelo */
+.status-chip.env-beta { background-color: #00BCD4; color: white; } /* Ciano */
+.status-chip.env-master { background-color: #3F51B5; color: white; } /* Índigo */
+.status-chip.env-unknown { background-color: #BDBDBD; color: var(--text-color); }
+
+/* Container para a Info. Clínica - Dados não de Box */
+.info-details {
+    margin-top: 20px;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+    text-align: left;
+}
+
+.info-details h4 {
+    color: var(--dark-blue);
+    margin-bottom: 10px;
+}
+
+/* Animação para os Boxes */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Aplica a animação individualmente em cada box para um efeito cascata (definido no JS) */
+.data-box {
+    animation: fadeIn 0.5s ease-out forwards;
+    opacity: 0; /* Começa oculto */
+}
+
+/* Cores de Ambiente (Garantir que estas classes CSS existam) */
+.status-chip.env-alfa { 
+    background-color: #FFC107; /* Amarelo */
+    color: var(--text-color); 
+} 
+.status-chip.env-beta { 
+    background-color: #00BCD4; /* Ciano */
+    color: white; 
+} 
+.status-chip.env-master { 
+    background-color: #3F51B5; /* Índigo */
+    color: white; 
+} 
+.status-chip.env-unknown { 
+    background-color: #BDBDBD; 
+    color: var(--text-color); 
+}
+/* Se precisar de mais contraste para o ambiente, adicione a cor do texto: */
+.status-chip.env-alfa { 
+    color: black; 
+}
+/* --- Estilos para a nova seção Serviços Adicionais --- */
+
+.service-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.service-list li {
+    background-color: #f0f0f0;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    border-left: 5px solid var(--primary-blue);
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.service-list .service-active {
+    color: #4CAF50; /* Verde de Ativo */
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+.service-list .service-inactive {
+    color: #F44336; /* Vermelho de Inativo/Não Encontrado */
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+/* --- NOVO: Estilos para Detalhes da Integração --- */
+
+.integration-container {
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+    border: 1px solid #eee;
+}
+
+.integration-container h4 {
+    color: var(--dark-blue);
+    margin-top: 0;
+    border-bottom: 2px solid var(--primary-blue);
+    padding-bottom: 5px;
+}
+
+.integration-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.detail-box {
+    background-color: #fff; 
+    padding: 12px;
+    border-radius: 8px;
+    border-left: 5px solid var(--primary-blue);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.detail-box h5 {
+    font-size: 0.8rem;
+    color: #555; 
+    margin: 0 0 5px 0;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.detail-box p {
+    font-size: 1rem;
+    color: var(--text-color);
+    font-weight: bold;
+    margin: 0;
+}
+
+/* Chips de Status Dinâmicos */
+.detail-status-chip {
+    display: inline-block;
+    padding: 2px 8px; 
+    border-radius: 4px; 
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-top: 5px;
+}
+.detail-status-chip.success { background-color: #4CAF50; color: white; }
+.detail-status-chip.warning { background-color: #FFC107; color: black; }
+.detail-status-chip.danger { background-color: #F44336; color: white; }
