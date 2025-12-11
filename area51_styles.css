@@ -1,0 +1,423 @@
+/* area51_styles.css */
+
+:root {
+    --cevicom-red: #D20A11;
+    --cevicom-black: #1A1A1A;
+    --cevicom-white: #FFFFFF;
+    --area51-yellow: #FFCC00;
+    --area51-charcoal: #36454F; /* Cor Chumbo/Concreto Escuro */
+    --area51-bg-dark: #0b0c0f; /* Fundo muito escuro para a página */
+}
+
+/* ------------------------------------------------ */
+/* ESTILOS GLOBAIS DA PÁGINA AREA51 */
+/* ------------------------------------------------ */
+
+#area51 {
+    /* Fundo escuro e padrão de losangos sutil */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--area51-bg-dark); 
+    color: var(--cevicom-white);
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><path d="M50 0 L100 50 L50 100 L0 50 Z" fill="%23FFCC00"/></svg>');
+    background-size: 50px 50px;
+    margin: 0;
+    padding: 0;
+    padding-top: 50px;
+    min-height: 100vh;
+    display: block; 
+}
+
+.area51-container {
+    width: 90%;
+    max-width: 1000px;
+    background-color: #1a1a1a;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 0 50px rgba(255, 204, 0, 0.1);
+    border: 1px solid #333;
+    margin: 0 auto 50px auto; 
+    text-align: center;
+}
+
+/* Footer (fixo para a página Area 51) */
+.area51-container + footer {
+    text-align: center;
+    color: #666;
+    font-size: 0.8rem;
+    padding-bottom: 20px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+/* ------------------------------------------------ */
+/* HEADER DA ÁREA 51 */
+/* ------------------------------------------------ */
+
+.area51-header {
+    text-align: center;
+    border-bottom: 1px solid #333;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.area51-header .back-btn {
+    position: absolute;
+    top: -30px;
+    left: 0;
+    padding: 10px 20px;
+    background: var(--area51-yellow);
+    color: var(--cevicom-black);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(255, 204, 0, 0.4);
+    transition: transform 0.2s ease;
+}
+
+.area51-header .back-btn:hover {
+    transform: scale(1.05);
+}
+
+.cevicom-logo-small {
+    max-width: 150px;
+    filter: brightness(0.8);
+}
+
+.area51-title-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.area51-radiation-icon {
+    font-size: 3.5rem;
+    color: var(--area51-yellow);
+    animation: pulse-glow 2s infinite alternate;
+}
+
+.area51-header h1 {
+    color: var(--area51-yellow);
+    font-size: 2rem;
+    margin: 0;
+    border-bottom: none;
+    padding-bottom: 0;
+    letter-spacing: 2px;
+    font-weight: 900;
+}
+
+.area51-subtitle {
+    color: #888;
+    font-size: 0.9rem;
+    margin-top: 15px;
+}
+
+/* ------------------------------------------------ */
+/* CONTEÚDO PRINCIPAL E TÍTULOS */
+/* ------------------------------------------------ */
+
+.automation-main-content {
+    padding: 30px 0;
+}
+
+.section-title {
+    color: #ddd;
+    font-size: 1.5rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: 500;
+    border-left: 5px solid var(--area51-yellow);
+    padding-left: 10px;
+    text-align: left;
+}
+
+.automation-zone-title {
+    margin-top: 50px;
+    font-size: 2rem;
+}
+
+/* --- Blocos de Aviso (Warning e Teste) --- */
+
+.warning-block {
+    border: 3px solid var(--area51-yellow);
+    background-color: rgba(255, 204, 0, 0.1);
+    padding: 15px;
+    border-radius: 5px;
+    text-align: left;
+    margin-bottom: 15px;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+}
+
+.warning-title {
+    color: var(--area51-yellow);
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.warning-text {
+    color: #fff;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.warning-title .fas {
+    margin-right: 8px;
+}
+
+.test-process-block {
+    background-color: #333;
+    color: #fff;
+    padding: 12px 15px;
+    border-radius: 5px;
+    text-align: left;
+    font-style: italic;
+    font-size: 0.9rem;
+    border-left: 5px solid #00ff00;
+    margin-bottom: 25px;
+}
+
+.test-process-block .fas {
+    margin-right: 10px;
+    color: #00ff00;
+}
+
+/* --- Cards de Automação (Automation Card) --- */
+
+.automation-card {
+    display: flex;
+    align-items: center;
+    background-color: var(--area51-charcoal); 
+    border: 1px solid #444;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.automation-card:hover {
+    background-color: #40515e; 
+    border-color: var(--area51-yellow);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    color: #ddd;
+    margin-right: 20px;
+}
+
+.card-info {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.automation-name {
+    color: #aaa;
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.automation-description {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.automation-status {
+    color: #999;
+    font-size: 0.9rem;
+    margin: 5px 0 0 0;
+}
+
+/* Estilos de Status e Botões */
+
+.status-online, .status-offline, .status-placeholder {
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.status-online {
+    color: #00ff00;
+}
+
+.status-offline {
+    color: #ff0000;
+}
+
+.status-placeholder {
+    color: var(--area51-yellow);
+}
+
+.status-btn {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    min-width: 100px;
+}
+
+.status-btn.online {
+    background-color: #00ff00;
+    color: #1a1a1a;
+}
+
+.status-btn.logs {
+    background-color: var(--area51-yellow);
+    color: #1a1a1a;
+}
+
+.status-btn.placeholder {
+    background-color: #555;
+    color: #eee;
+}
+
+.status-btn:hover {
+    opacity: 0.85;
+}
+
+/* Animação de Brilho */
+@keyframes pulse-glow {
+    0% { text-shadow: 0 0 5px rgba(255, 204, 0, 0.5), 0 0 10px rgba(255, 204, 0, 0.3); }
+    100% { text-shadow: 0 0 15px var(--area51-yellow), 0 0 25px rgba(255, 204, 0, 0.8); }
+}
+
+/* --- Estilos da Área 51 para Ferramentas de Suporte --- */
+
+.clinic-target-container {
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #2F3136; /* Cinza Escuro */
+    border: 1px solid var(--area51-yellow);
+    max-width: 600px;
+    border-radius: 8px;
+    color: var(--area51-yellow);
+    text-align: center;
+}
+
+.clinic-target-container label {
+    font-weight: bold;
+    margin-right: 15px;
+    font-size: 1rem;
+}
+
+/* Estilos para as Categorias e Grid de Ações */
+.action-category {
+    margin-top: 3rem;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 204, 0, 0.3);
+}
+
+.action-category h2 {
+    color: var(--area51-yellow);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.action-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.action-card {
+    background-color: #1A1A1A;
+    border: 1px solid #444;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: border-color 0.3s;
+}
+
+.action-card:hover {
+    border-color: var(--area51-yellow);
+}
+
+.action-card h4 {
+    color: var(--cevicom-white);
+    margin-top: 0;
+    font-size: 1.2rem;
+    border-bottom: 1px dashed #333;
+    padding-bottom: 10px;
+}
+
+.action-card p {
+    color: #AAA;
+    font-size: 0.9rem;
+    min-height: 40px; 
+}
+
+/* Botões de Ação */
+.action-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.action-btn.primary-action {
+    background-color: var(--primary-blue, #1E88E5); /* Azul padrão para diagnóstico */
+    color: white;
+}
+
+.action-btn.danger-action {
+    background-color: #D32F2F; /* Vermelho para ações destrutivas/restart */
+    color: white;
+}
+
+.action-btn.secondary-action {
+    background-color: #444; /* Cinza Escuro para logs/links */
+    color: var(--area51-yellow);
+}
+
+/* Painel de Resultados */
+.result-box {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    border: 1px solid #444;
+    color: #888;
+    background-color: #111;
+    min-height: 20px;
+}
+
+.result-box.loading {
+    color: var(--area51-yellow);
+    border-color: var(--area51-yellow);
+    animation: pulse-border 1s infinite alternate;
+}
+
+.result-box.success {
+    background-color: #1A4D2E; /* Verde Escuro */
+    color: #A5D6A7;
+    border-color: #4CAF50;
+}
+
+.result-box.warning {
+    background-color: #5E4E19; /* Laranja Escuro */
+    color: #FFECB3;
+    border-color: #FFC107;
+}
+
+.result-box.danger {
+    background-color: #5C1D21; /* Vermelho Escuro */
+    color: #FFCDD2;
+    border-color: #F44336;
+}
+
+@keyframes pulse-border {
+    from { box-shadow: 0 0 0 0 rgba(255, 204, 0, 0.4); }
+    to { box-shadow: 0 0 0 8px rgba(255, 204, 0, 0); }
+}

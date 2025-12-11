@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área 51 - Hub de Ferramentas de Suporte</title>
+    <link rel="stylesheet" href="area51_styles.css"> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body id="dashboard-area51"> 
+    <header>
+        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Sair da Zona</a>
+        <div class="logo-container">
+            <i class="fas fa-radiation-alt logo-icon"></i>
+        </div>
+        <h1>ÁREA 51: Ferramentas de Suporte Avançado</h1>
+        <p class="warning-text">Ações aqui podem afetar o ambiente do cliente. Prossiga com cautela.</p>
+        
+        <div class="clinic-target-container">
+            <label for="clinicSelect">CLÍNICA ALVO:</label>
+            <select id="clinicSelect" style="width: 300px;">
+                <option value="">-- Selecione uma clínica --</option>
+            </select>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <section class="action-category">
+            <h2><i class="fas fa-shield-alt"></i> 1. Diagnóstico de Sistemas Core</h2>
+            <div class="action-grid">
+
+                <div class="action-card" data-action="ping-api">
+                    <h4>Verificar Status da API</h4>
+                    <p>Envia um ping para o endpoint principal da API da clínica alvo para verificar o status de resposta.</p>
+                    <button class="action-btn primary-action" data-action-id="pingApi"><i class="fas fa-network-wired"></i> PING AGORA</button>
+                    <div class="result-box" id="result-pingApi">Aguardando execução...</div>
+                </div>
+
+                <div class="action-card" data-action="check-db-version">
+                    <h4>Versão do Banco de Dados</h4>
+                    <p>Tenta buscar a versão do banco de dados (MySQL/PostgreSQL) reportada pela API da clínica.</p>
+                    <button class="action-btn primary-action" data-action-id="checkDB"><i class="fas fa-database"></i> CHECAR VERSÃO</button>
+                    <div class="result-box" id="result-checkDB">Aguardando execução...</div>
+                </div>
+
+                <div class="action-card" data-action="logs-fetch">
+                    <h4>Logs de Erro Recentes</h4>
+                    <p>Acessa logs de erro (localizados no servidor) para diagnóstico rápido.</p>
+                    <button class="action-btn secondary-action" data-action-id="fetchLogs"><i class="fas fa-file-alt"></i> ACESSAR (Link)</button>
+                    <div class="result-box" id="result-fetchLogs">Aguardando execução...</div>
+                </div>
+                
+            </div>
+        </section>
+        
+        <section class="action-category">
+            <h2><i class="fas fa-comments"></i> 2. Integração e Comunicação</h2>
+            <div class="action-grid">
+                
+                <div class="action-card" data-action="chatwoot-cache">
+                    <h4>Limpar Cache Chatwoot</h4>
+                    <p>Limpa o cache da instância do Chatwoot (iTalk) para resolver problemas de mensagens antigas ou lentidão.</p>
+                    <button class="action-btn danger-action" data-action-id="clearCache"><i class="fas fa-eraser"></i> LIMPAR AGORA</button>
+                    <div class="result-box" id="result-clearCache">Aguardando execução...</div>
+                </div>
+                
+                <div class="action-card" data-action="webhook-test">
+                    <h4>Testar Webhook WA</h4>
+                    <p>Verifica se o Webhook de mensagens do WhatsApp está ativo e respondendo à plataforma iGUT.</p>
+                    <button class="action-btn primary-action" data-action-id="testWebhook"><i class="fas fa-satellite-dish"></i> TESTAR CONEXÃO</button>
+                    <div class="result-box" id="result-testWebhook">Aguardando execução...</div>
+                </div>
+
+                <div class="action-card" data-action="restart-service">
+                    <h4>Reiniciar Serviço de Integração</h4>
+                    <p>Reinicia o serviço local de integrações da clínica (Atenção: interrupção momentânea de dados).</p>
+                    <button class="action-btn danger-action" data-action-id="restartService"><i class="fas fa-redo"></i> REINICIAR (Backend)</button>
+                    <div class="result-box" id="result-restartService">Aguardando execução...</div>
+                </div>
+                
+            </div>
+        </section>
+
+    </div> 
+
+    <footer>
+        <p>Acesso Restrito. Nível 5 de Segurança. PragmaNexus.</p>
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-beta.1/js/select2.min.js"></script>
+    <script src="area51_script.js"></script>
+</body>
+</html>
