@@ -2,7 +2,9 @@
     --cevicom-red: #D20A11;
     --cevicom-black: #1A1A1A;
     --cevicom-white: #FFFFFF;
-    --area51-yellow: #FFCC00; /* Novo: Amarelo de Alerta para o botão */
+    --area51-yellow: #FFCC00;
+    --area51-charcoal: #36454F; /* Cor Chumbo/Concreto Escuro */
+    --area51-bg-dark: #0b0c0f; /* Fundo muito escuro para a página */
 }
 
 body {
@@ -18,6 +20,7 @@ body {
     text-align: center;
 }
 
+/* Estilos Padrão do Hub */
 .hub-container {
     width: 90%;
     max-width: 800px;
@@ -45,6 +48,7 @@ header h1 {
     height: auto;
 }
 
+/* Estilos de Seleção de Sistema (Hub) */
 .system-selection {
     display: flex;
     justify-content: center;
@@ -79,55 +83,73 @@ header h1 {
     margin-bottom: 1rem;
 }
 
-/* Estilos dos botões existentes */
-.igut {
-    background: #0080ff;
-}
+.igut { background: #0080ff; }
+.eba { background: #c0392b; }
 
-.eba {
-    background: #c0392b;
-}
-
-/* NOVO ESTILO: ÁREA 51 (Preto e Amarelo de Alerta) */
+/* Estilo do Botão Área 51 no HUB (Mantido) */
 .area-51 {
-    background: var(--cevicom-black); /* Fundo Preto */
-    border: 2px solid var(--area51-yellow); /* Borda Amarela */
-    color: var(--area51-yellow); /* Texto Amarelo */
+    display: flex;
+    flex-direction: row; 
+    justify-content: flex-start; 
+    align-items: center; 
+    background-color: var(--area51-charcoal); 
+    border: none; 
+    border-radius: 8px; 
+    padding: 1rem; 
+    padding-bottom: 2.5rem; 
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.4); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    width: 280px; 
 }
 
+.area-51::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 18px; 
+    z-index: 2;
+    background: repeating-linear-gradient(
+        45deg,
+        var(--cevicom-black),
+        var(--cevicom-black) 8px,
+        var(--area51-yellow) 8px,
+        var(--area51-yellow) 16px
+    );
+    border-top: 2px solid var(--area51-yellow);
+}
+
+.area-51 * { z-index: 3; position: relative; }
 .area-51 .area-51-icon {
-    font-size: 3.5rem; /* Ícone de radiação maior */
-    color: var(--area51-yellow); /* Cor do ícone */
-    margin-bottom: 1rem;
-    animation: pulse-glow 1.5s infinite alternate; /* Adiciona um efeito de pulso/brilho */
+    font-size: 3rem; 
+    color: var(--area51-yellow); 
+    margin: 0; 
+    margin-right: 15px; 
+    animation: pulse-glow 1.5s infinite alternate; 
 }
-
-.area-51:hover {
-    background-color: var(--area51-yellow); /* Inverte as cores no hover */
-    color: var(--cevicom-black); /* Texto preto */
-    box-shadow: 0 12px 25px rgba(255, 204, 0, 0.6);
+.area-51 .area-51-text-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
 }
-
-.area-51:hover .area-51-icon {
-    color: var(--cevicom-black); /* Ícone preto no hover */
-    animation: none; /* Remove a animação no hover */
+.area-51 .area-51-title {
+    color: var(--cevicom-white); 
+    font-size: 1.1rem;
+    font-weight: bold;
+    line-height: 1.1; 
 }
-
-/* Keyframe para o efeito de pulso/brilho no ícone de radiação */
-@keyframes pulse-glow {
-    from {
-        box-shadow: 0 0 5px var(--area51-yellow);
-        text-shadow: 0 0 5px var(--area51-yellow);
-    }
-    to {
-        box-shadow: 0 0 20px var(--area51-yellow);
-        text-shadow: 0 0 10px var(--area51-yellow);
-    }
-}
-
-footer {
-    padding-top: 2rem;
-    border-top: 1px solid #444;
+.area-51 .area-51-subtitle {
+    color: #CCC; 
     font-size: 0.85rem;
-    color: #999;
+    font-weight: normal;
+    text-transform: uppercase;
+    line-height: 1.1; 
+    margin-top: 3px;
 }
+.area-51:hover {
+    transform: translateY(-8px);
+    box-shadow: 0
