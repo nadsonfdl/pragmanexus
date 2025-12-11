@@ -1,0 +1,15 @@
+# Arquivos gerados por IDEs e Sistemas Operacionais
+.DS_Store
+*.tmp
+*.log
+
+# Pastas de dependências (se você usasse Node.js)
+node_modules/
+
+# ARQUIVOS DE CONFIGURAÇÃO OU CHAVES (SE TIVESSE!)
+# Exemplo: Se você criasse um arquivo local para chaves:
+# config.local.js
+# .env 
+
+# Arquivos de backup
+*.bak
